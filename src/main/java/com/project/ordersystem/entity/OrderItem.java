@@ -1,6 +1,9 @@
 package com.project.ordersystem.entity;
+
 import com.project.ordersystem.enums.OrderItemStatus;
 import com.project.ordersystem.enums.OrderItemType;
+import com.project.ordersystem.service.BaseService;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
@@ -11,7 +14,7 @@ import java.util.Date;
 @Table(name = "ORDER_ITEM")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
-public abstract class OrderItem {
+public abstract class OrderItem extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +24,7 @@ public abstract class OrderItem {
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private ProductOrder order;
+    private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Seller seller;
@@ -63,11 +66,11 @@ public abstract class OrderItem {
         this.product = product;
     }
 
-    public ProductOrder getOrder() {
+    public Order getOrder() {
         return order;
     }
 
-    public void setOrder(ProductOrder order) {
+    public void setOrder(Order order) {
         this.order = order;
     }
 

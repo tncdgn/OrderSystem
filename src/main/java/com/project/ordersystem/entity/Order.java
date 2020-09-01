@@ -17,7 +17,7 @@ import java.util.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductOrder {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue(generator = "SEQ_ORDERS", strategy = GenerationType.SEQUENCE)
