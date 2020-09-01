@@ -1,10 +1,14 @@
 package com.project.ordersystem.entity;
+
 import com.project.ordersystem.enums.ProductOrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
+
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.Clock;
 import java.util.*;
 
 
@@ -31,6 +35,12 @@ public class ProductOrder {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private WareHouseAddress wareHouseAddress;
+
+    @Column(name = "TOTAL_PRICE")
+    private BigDecimal totalPrice;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate = new Date();
 
     public Long getId() {
         return id;
@@ -70,6 +80,22 @@ public class ProductOrder {
 
     public void setWareHouseAddress(WareHouseAddress wareHouseAddress) {
         this.wareHouseAddress = wareHouseAddress;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
 

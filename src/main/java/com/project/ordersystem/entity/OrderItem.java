@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "ORDER_ITEM")
@@ -39,6 +40,9 @@ public abstract class OrderItem {
 
     @Column(length = 255, name = "PRODUCT_TITLE")
     private String productTitle;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate = new Date();
 
     public abstract OrderItemType getOrderItemType();
 
@@ -112,5 +116,13 @@ public abstract class OrderItem {
 
     public void setProductTitle(String productTitle) {
         this.productTitle = productTitle;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 }
