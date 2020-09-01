@@ -30,7 +30,7 @@ public class ProductOrder {
     private Set<OrderItem> items = new LinkedHashSet<>();
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 50)
+    @Column(length = 50,name = "ORDER_STATUS")
     private ProductOrderStatus orderStatus = ProductOrderStatus.IN_PROGRESS;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -40,6 +40,7 @@ public class ProductOrder {
     private BigDecimal totalPrice;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATED_DATE")
     private Date createdDate = new Date();
 
     public Long getId() {

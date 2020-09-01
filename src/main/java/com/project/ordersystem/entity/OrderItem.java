@@ -42,6 +42,7 @@ public abstract class OrderItem {
     private String productTitle;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATED_DATE")
     private Date createdDate = new Date();
 
     public abstract OrderItemType getOrderItemType();
