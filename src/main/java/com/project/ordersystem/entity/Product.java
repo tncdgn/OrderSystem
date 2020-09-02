@@ -84,4 +84,12 @@ public class Product extends BaseEntity {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
 }

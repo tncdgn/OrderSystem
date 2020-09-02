@@ -26,18 +26,18 @@ public class Order extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Buyer buyer;
 
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "order")
     private Set<OrderItem> items = new LinkedHashSet<>();
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 50,name = "ORDER_STATUS")
+    @Column(length = 50, name = "ORDER_STATUS")
     private ProductOrderStatus orderStatus = ProductOrderStatus.IN_PROGRESS;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private WareHouseAddress wareHouseAddress;
 
     @Column(name = "TOTAL_PRICE")
-    private BigDecimal totalPrice;
+    private BigDecimal totalPrice = BigDecimal.ZERO;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "CREATED_DATE")

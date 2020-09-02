@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 @Table(name = "ORDER_ITEM")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING, columnDefinition = "varchar default ''", length = 20)
 public abstract class OrderItem extends BaseEntity {
 
     @Id
@@ -23,7 +23,7 @@ public abstract class OrderItem extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
