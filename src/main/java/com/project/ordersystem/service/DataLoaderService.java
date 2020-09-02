@@ -26,6 +26,9 @@ public class DataLoaderService {
     @Autowired
     private WareHouseAddressService wareHouseAddressService;
 
+    @Autowired
+    private MessageResourceService messageResourceService;
+
     @PostConstruct
     public void init() {
         prepareData();
@@ -67,5 +70,24 @@ public class DataLoaderService {
         WareHouseAddress pinarAddress = WareHouseAddress.builder().address("Asma mahallesi Kadıköy").city("Istanbul").buyer(carrefour).postCode("34734").build();
 
         wareHouseAddressService.saveBulk(Arrays.asList(migrosAddress, pinarAddress));
+
+        MessageResource productIdNotValid = MessageResource.builder().key("product.id.notValid").content("Geçersiz ürün id").build();
+        MessageResource productNotFound = MessageResource.builder().key("product.notFound").content("Ürün Bulunamadı").build();
+        MessageResource productQuantityNotValid = MessageResource.builder().key("product.quantity.notValid").content("Girilen ürün miktarı geçersiz").build();
+        MessageResource productIdNotFound = MessageResource.builder().key("product.id.notFound").content("Siparişinizde en az bir ürün bulunmalı.").build();
+        MessageResource productOutOfStock = MessageResource.builder().key("product.outOfStock").content("Üründen girilen miktarda bulunmamaktadır.").build();
+        MessageResource buyerIdInvalid = MessageResource.builder().key("buyer.id.invalid").content("Geçersiz müşteri id.").build();
+        MessageResource buyerNotFound = MessageResource.builder().key("buyer.notFound").content("Müşteri Bulunamadı.").build();
+        MessageResource warehouseIdInvalid = MessageResource.builder().key("warehouse.id.invalid").content("Geçersiz depo adres id").build();
+        MessageResource warehouseNotFound = MessageResource.builder().key("warehouse.notFound").content("Depo adresi bulunamadı.").build();
+
+        messageResourceService.saveBulk(Arrays.asList
+                (
+                        productIdNotValid, productNotFound, productQuantityNotValid, productIdNotFound, productOutOfStock,
+                        buyerIdInvalid ,buyerNotFound,warehouseIdInvalid,warehouseNotFound
+                )
+        );
+
+        messageResourceService.init();
     }
 }
