@@ -43,6 +43,13 @@ public class Order extends BaseEntity {
     @Column(name = "CREATED_DATE")
     private Date createdDate = new Date();
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "ORDER_DATE")
+    private Date orderDate;
+
+    @Column(name = "ORDER_NUMBER")
+    private String orderNumber = UUID.randomUUID().toString();
+
     public Long getId() {
         return id;
     }
@@ -97,6 +104,22 @@ public class Order extends BaseEntity {
 
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 }
 
