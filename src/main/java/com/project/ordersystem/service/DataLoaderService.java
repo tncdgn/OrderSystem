@@ -80,11 +80,12 @@ public class DataLoaderService {
         MessageResource buyerNotFound = MessageResource.builder().key("buyer.notFound").content("Müşteri Bulunamadı.").build();
         MessageResource warehouseIdInvalid = MessageResource.builder().key("warehouse.id.invalid").content("Geçersiz depo adres id").build();
         MessageResource warehouseNotFound = MessageResource.builder().key("warehouse.notFound").content("Depo adresi bulunamadı.").build();
+        MessageResource invalidOrderDate = MessageResource.builder().key("orderDate.invalid").content("Lütfen ileri tarihli sipariş veriniz.").build();
 
         messageResourceService.saveBulk(Arrays.asList
                 (
                         productIdNotValid, productNotFound, productQuantityNotValid, productIdNotFound, productOutOfStock,
-                        buyerIdInvalid ,buyerNotFound,warehouseIdInvalid,warehouseNotFound
+                        buyerIdInvalid ,buyerNotFound,warehouseIdInvalid,warehouseNotFound,invalidOrderDate
                 )
         );
 

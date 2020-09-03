@@ -5,6 +5,7 @@ import com.project.ordersystem.model.ProductModel;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -18,4 +19,5 @@ public class EntityGeneratorModel {
     private WareHouseAddress wareHouseAddress;
     private List<ProductModel> productModels;
     private Set<OrderItem> productOrderItems;
+    private Date orderDate;
 }

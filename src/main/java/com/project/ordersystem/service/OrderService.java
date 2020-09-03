@@ -34,6 +34,7 @@ public class OrderService extends BaseService<Order> {
     public void createOrder(CreateOrderModel createOrderModel) {
         List<Product> products = productService.findOrThrowException(createOrderModel.generateIdListFromProductModels());
         validateProductsStock(products, createOrderModel.getProductModels());
+
         EntityGeneratorModel entityGeneratorModel = generateEntityGeneratorModel(createOrderModel);
         List<OrderItem> orderItems = productOrderItemGenerator.generateProductOrderItem(entityGeneratorModel, products);
         orderItemService.saveBulk(orderItems);
@@ -46,7 +47,7 @@ public class OrderService extends BaseService<Order> {
     private EntityGeneratorModel generateEntityGeneratorModel(CreateOrderModel createOrderModel) {
         Buyer buyer = buyerService.findBuyerOrThrowException(createOrderModel.getBuyerId());
         WareHouseAddress wareHouseAddress = wareHouseAddressService.findOrThrowException(createOrderModel.getBuyerWareHouseAddressId());
-        EntityGeneratorModel entityGeneratorModel = EntityGeneratorModel.builder().productModels(createOrderModel.getProductModels()).buyer(buyer).wareHouseAddress(wareHouseAddress).build();
+        EntityGeneratorModel entityGeneratorModel = EntityGeneratorModel.builder().orderDate(createOrderModel.getOrderDate()).productModels(createOrderModel.getProductModels()).buyer(buyer).wareHouseAddress(wareHouseAddress).build();
 
         return entityGeneratorModel;
     }

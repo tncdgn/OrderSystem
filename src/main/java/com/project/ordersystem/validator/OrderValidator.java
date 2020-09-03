@@ -5,6 +5,7 @@ import com.project.ordersystem.model.ProductModel;
 import com.project.ordersystem.validator.util.Validators;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -12,6 +13,7 @@ public class OrderValidator extends BaseValidator<CreateOrderModel> {
 
     @Override
     public void validate(CreateOrderModel request) {
+        validateOrderDate(request.getOrderDate());
         validateProductModels(request.getProductModels());
         validateBuyer(request.getBuyerId());
         validateWareHouse(request.getBuyerWareHouseAddressId());
@@ -31,7 +33,7 @@ public class OrderValidator extends BaseValidator<CreateOrderModel> {
         validateRequest(wareHouseId.intValue(), "warehouse.id.invalid", Validators.greaterOrEqualTo(1));
     }
 
-    private void validateQuantity(int quantity) {
-        validateRequest(quantity, "product.quantity.notValid", Validators.greaterOrEqualTo(1));
+    private void validateOrderDate(Date orderDate) {
+        validateRequest(orderDate, "orderDate.invalid", Validators.greaterOrEqualTo(new Date()));
     }
 }
