@@ -146,6 +146,8 @@
             </plugin>
 
         </plugins>
+
+        <finalName>order-system</finalName>
     </build>
 
 </project>

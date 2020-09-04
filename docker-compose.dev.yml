@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  docker-order-system:
+    image: order-system:latest
+    restart: always
+    ports:
+      - "8087:8087"
+    environment:
+      - server.port=8087
+      - spring.h2.console.settings.web-allow-others=true
+      - spring.datasource.url=jdbc:h2:mem:devdb
+      - spring.datasource.driverClassName=org.h2.Driver
+      - spring.datasource.username=dev
+      - spring.datasource.password=dev
