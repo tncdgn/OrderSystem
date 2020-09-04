@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/tncdgn/OrderSystem.svg?branch=master)](https://travis-ci.com/tncdgn/OrderSystem)
+
+
 # OrderSystem
 
 This is the simple rest service to order with written spring boot.
