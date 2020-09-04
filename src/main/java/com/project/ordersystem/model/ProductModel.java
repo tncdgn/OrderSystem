@@ -1,6 +1,5 @@
 package com.project.ordersystem.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 

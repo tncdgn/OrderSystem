@@ -1,12 +1,8 @@
 package com.project.ordersystem.validator;
 
-import com.project.ordersystem.entity.Buyer;
-import com.project.ordersystem.entity.Product;
 import com.project.ordersystem.exception.InvalidRequestException;
 import com.project.ordersystem.model.CreateOrderModel;
 import com.project.ordersystem.model.ProductModel;
-import org.apache.commons.lang.time.DateUtils;
-import org.h2.util.DateTimeUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,7 +14,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OrderValidatorTest {

@@ -1,17 +1,12 @@
 package com.project.ordersystem.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 import java.util.stream.Collectors;
-
-import static java.util.TimeZone.getDefault;
 
 @Data
 public class CreateOrderModel extends BaseModel {

@@ -3,14 +3,11 @@ package com.project.ordersystem.service;
 import com.project.ordersystem.dao.BuyerDao;
 import com.project.ordersystem.entity.Buyer;
 import com.project.ordersystem.exception.BuyerNotFoundException;
-import com.project.ordersystem.exception.InvalidRequestException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.omg.CORBA.Any;
 
 import java.util.Arrays;
 import java.util.Optional;

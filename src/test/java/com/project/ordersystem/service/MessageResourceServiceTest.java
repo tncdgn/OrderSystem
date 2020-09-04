@@ -1,7 +1,6 @@
 package com.project.ordersystem.service;
 
 import com.project.ordersystem.dao.MessageResourceDao;
-import com.project.ordersystem.entity.Buyer;
 import com.project.ordersystem.entity.MessageResource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

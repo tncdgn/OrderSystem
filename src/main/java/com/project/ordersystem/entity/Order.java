@@ -4,12 +4,13 @@ import com.project.ordersystem.enums.ProductOrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.Clock;
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
 
 
 @Entity

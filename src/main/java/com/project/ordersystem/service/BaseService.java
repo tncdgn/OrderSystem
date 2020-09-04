@@ -1,8 +1,6 @@
 package com.project.ordersystem.service;
 
 import com.project.ordersystem.entity.BaseEntity;
-import com.project.ordersystem.entity.Product;
-import com.project.ordersystem.entity.ProductOrderItem;
 import com.project.ordersystem.entity.generator.OrderGenerator;
 import com.project.ordersystem.entity.generator.ProductOrderItemGenerator;
 import com.project.ordersystem.validator.ProductValidator;

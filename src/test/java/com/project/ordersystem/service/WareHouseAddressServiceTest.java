@@ -1,9 +1,7 @@
 package com.project.ordersystem.service;
 
 import com.project.ordersystem.dao.WareHouseAddressDao;
-import com.project.ordersystem.entity.Seller;
 import com.project.ordersystem.entity.WareHouseAddress;
-import com.project.ordersystem.exception.BuyerNotFoundException;
 import com.project.ordersystem.exception.WareHouseAddressNotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +11,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

@@ -1,11 +1,9 @@
 package com.project.ordersystem.service;
 
 import com.project.ordersystem.dao.ProductDao;
-import com.project.ordersystem.entity.Order;
 import com.project.ordersystem.entity.Product;
 import com.project.ordersystem.exception.ProductNotFoundException;
 import org.junit.Test;
-import org.junit.platform.commons.util.CollectionUtils;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -14,9 +12,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

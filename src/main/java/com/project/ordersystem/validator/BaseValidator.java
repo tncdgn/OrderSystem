@@ -1,6 +1,5 @@
 package com.project.ordersystem.validator;
 
-import com.project.ordersystem.entity.Product;
 import com.project.ordersystem.exception.InvalidRequestException;
 import com.project.ordersystem.model.BaseModel;
 import com.project.ordersystem.service.ProductService;

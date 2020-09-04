@@ -1,13 +1,10 @@
 package com.project.ordersystem.service;
 
 import com.project.ordersystem.dao.MessageResourceDao;
-import com.project.ordersystem.dao.SellerDao;
 import com.project.ordersystem.entity.MessageResource;
-import com.project.ordersystem.entity.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

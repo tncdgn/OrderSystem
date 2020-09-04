@@ -2,10 +2,7 @@ package com.project.ordersystem.entity;
 
 import com.project.ordersystem.enums.OrderItemStatus;
 import com.project.ordersystem.enums.OrderItemType;
-import com.project.ordersystem.service.BaseService;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
