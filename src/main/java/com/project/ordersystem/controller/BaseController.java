@@ -29,7 +29,6 @@ public class BaseController {
     @Autowired
     protected OrderService orderService;
 
-
     protected ResponseEntity<BaseResponse> handleException(Exception e) {
         String message;
         int responseCode;

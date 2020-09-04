@@ -1,14 +1,15 @@
 package com.project.ordersystem.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class ProductModel extends BaseModel {
     private Long productId;
     private int quantity;
 
-    @JsonIgnore
     public int generateProductIdAsInt() {
         return productId.intValue();
     }

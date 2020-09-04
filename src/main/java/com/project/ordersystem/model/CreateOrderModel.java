@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -15,10 +16,10 @@ import static java.util.TimeZone.getDefault;
 @Data
 public class CreateOrderModel extends BaseModel {
     private long buyerId;
-    private List<ProductModel> productModels;
+    private List<ProductModel> productModels = new ArrayList<>();
     private long buyerWareHouseAddressId;
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy HH:mm:ss",timezone = "GMT+3" )
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss", timezone = "GMT+3")
     private Date orderDate;
 
     public List<Long> generateIdListFromProductModels() {

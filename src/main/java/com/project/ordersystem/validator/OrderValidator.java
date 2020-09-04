@@ -18,8 +18,7 @@ public class OrderValidator extends BaseValidator<CreateOrderModel> {
         validateBuyer(request.getBuyerId());
         validateWareHouse(request.getBuyerWareHouseAddressId());
     }
-
-
+    
     private void validateProductModels(List<ProductModel> productModels) {
         validateRequest(productModels.size(), "product.id.notFound", Validators.greaterOrEqualTo(1));
         productModels.forEach(productModel -> productValidator.validate(productModel));
