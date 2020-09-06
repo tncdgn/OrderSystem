@@ -1,6 +1,7 @@
 package com.project.ordersystem.service;
 
 import com.project.ordersystem.entity.BaseEntity;
+import com.project.ordersystem.entity.generator.EntityGeneratorFactory;
 import com.project.ordersystem.entity.generator.OrderGenerator;
 import com.project.ordersystem.entity.generator.ProductOrderItemGenerator;
 import com.project.ordersystem.validator.ProductValidator;
@@ -24,13 +25,10 @@ public abstract class BaseService<T extends BaseEntity> {
     protected ProductValidator productValidator;
 
     @Autowired
-    protected ProductOrderItemGenerator productOrderItemGenerator;
-
-    @Autowired
-    protected OrderGenerator orderGenerator;
-
-    @Autowired
     protected OrderItemService orderItemService;
+
+    @Autowired
+    protected EntityGeneratorFactory entityGeneratorFactory;
 
     public abstract void save(T t);
 

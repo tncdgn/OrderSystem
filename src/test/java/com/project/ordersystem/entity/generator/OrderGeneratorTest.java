@@ -11,6 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import static com.project.ordersystem.entity.generator.EntityGeneratorType.ORDER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -41,5 +42,10 @@ public class OrderGeneratorTest {
         orderGenerator.addProductPriceToTotalCost(order, BigDecimal.TEN);
 
         assertEquals(order.getTotalPrice(), BigDecimal.TEN);
+    }
+
+    @Test
+    public void shouldGetType() {
+        assertEquals(orderGenerator.type(), ORDER);
     }
 }

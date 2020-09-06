@@ -3,6 +3,8 @@ package com.project.ordersystem.service;
 import com.project.ordersystem.dao.OrderDao;
 import com.project.ordersystem.entity.*;
 import com.project.ordersystem.entity.generator.EntityGeneratorModel;
+import com.project.ordersystem.entity.generator.EntityGeneratorType;
+import com.project.ordersystem.entity.generator.ProductOrderItemGenerator;
 import com.project.ordersystem.model.CreateOrderModel;
 import com.project.ordersystem.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+
+import static com.project.ordersystem.entity.generator.EntityGeneratorType.PRODUCT_ORDER_ITEM;
 
 @Service
 public class OrderService extends BaseService<Order> {
@@ -34,6 +38,7 @@ public class OrderService extends BaseService<Order> {
         validateProductsStock(products, createOrderModel.getProductModels());
 
         EntityGeneratorModel entityGeneratorModel = generateEntityGeneratorModel(createOrderModel);
+        ProductOrderItemGenerator productOrderItemGenerator = (ProductOrderItemGenerator) entityGeneratorFactory.get(PRODUCT_ORDER_ITEM);
         List<OrderItem> orderItems = productOrderItemGenerator.generateProductOrderItem(entityGeneratorModel, products);
         orderItemService.saveBulk(orderItems);
     }

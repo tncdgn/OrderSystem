@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+import static com.project.ordersystem.entity.generator.EntityGeneratorType.*;
+
 @Component
 public class OrderGenerator extends EntityGenerator<Order> {
 
@@ -15,6 +17,11 @@ public class OrderGenerator extends EntityGenerator<Order> {
         order.setWareHouseAddress(model.getWareHouseAddress());
         order.setOrderDate(model.getOrderDate());
         return order;
+    }
+
+    @Override
+    public EntityGeneratorType type() {
+        return ORDER;
     }
 
     public void addProductPriceToTotalCost(Order order, BigDecimal price) {

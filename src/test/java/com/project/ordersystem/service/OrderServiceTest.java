@@ -2,7 +2,9 @@ package com.project.ordersystem.service;
 
 import com.project.ordersystem.dao.OrderDao;
 import com.project.ordersystem.entity.*;
+import com.project.ordersystem.entity.generator.EntityGeneratorFactory;
 import com.project.ordersystem.entity.generator.EntityGeneratorModel;
+import com.project.ordersystem.entity.generator.EntityGeneratorType;
 import com.project.ordersystem.entity.generator.ProductOrderItemGenerator;
 import com.project.ordersystem.model.CreateOrderModel;
 import com.project.ordersystem.model.ProductModel;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.project.ordersystem.entity.generator.EntityGeneratorType.PRODUCT_ORDER_ITEM;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -47,6 +50,9 @@ public class OrderServiceTest {
 
     @Mock
     private OrderDao orderDao;
+
+    @Mock
+    private EntityGeneratorFactory entityGeneratorFactory;
 
     @Test
     public void shouldSave() {
@@ -94,6 +100,7 @@ public class OrderServiceTest {
         List<OrderItem> orderItems = new ArrayList<>();
         orderItems.add(orderItem);
 
+        when(entityGeneratorFactory.get(PRODUCT_ORDER_ITEM)).thenReturn(productOrderItemGenerator);
         when(productOrderItemGenerator.generateProductOrderItem(entityGeneratorModel, products)).thenReturn(orderItems);
 
         orderService.createOrder(createOrderModel);
