@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static com.project.ordersystem.entity.generator.EntityGeneratorType.PRODUCT_ORDER_ITEM;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EntityGeneratorFactoryTest {
 

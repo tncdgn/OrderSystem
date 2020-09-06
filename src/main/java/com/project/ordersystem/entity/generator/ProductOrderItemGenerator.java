@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.project.ordersystem.entity.generator.EntityGeneratorType.*;
+import static com.project.ordersystem.entity.generator.EntityGeneratorType.PRODUCT_ORDER_ITEM;
 
 @Component
 public class ProductOrderItemGenerator extends EntityGenerator<ProductOrderItem> {
 
     @Autowired
-    private EntityGeneratorFactory entityGeneratorFactory;
+    private OrderGenerator orderGenerator;
 
     @Override
     public ProductOrderItem generate(EntityGeneratorModel model) {
@@ -41,10 +41,8 @@ public class ProductOrderItemGenerator extends EntityGenerator<ProductOrderItem>
         return PRODUCT_ORDER_ITEM;
     }
 
-
     public List<OrderItem> generateProductOrderItem(EntityGeneratorModel entityGeneratorModel, List<Product> products) {
         List<OrderItem> productOrderItems = new ArrayList<>();
-        OrderGenerator orderGenerator = (OrderGenerator) entityGeneratorFactory.get(ORDER);
         Order order = orderGenerator.generate(entityGeneratorModel);
 
         for (Product product : products) {

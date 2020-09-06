@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-import static com.project.ordersystem.entity.generator.EntityGeneratorType.*;
+import static com.project.ordersystem.entity.generator.EntityGeneratorType.ORDER;
 
 @Component
 public class OrderGenerator extends EntityGenerator<Order> {

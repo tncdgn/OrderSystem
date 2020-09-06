@@ -2,8 +2,6 @@ package com.project.ordersystem.service;
 
 import com.project.ordersystem.entity.BaseEntity;
 import com.project.ordersystem.entity.generator.EntityGeneratorFactory;
-import com.project.ordersystem.entity.generator.OrderGenerator;
-import com.project.ordersystem.entity.generator.ProductOrderItemGenerator;
 import com.project.ordersystem.validator.ProductValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 

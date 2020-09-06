@@ -15,7 +15,6 @@ import java.util.List;
 
 import static com.project.ordersystem.entity.generator.EntityGeneratorType.PRODUCT_ORDER_ITEM;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -26,9 +25,6 @@ public class ProductOrderItemGeneratorTest {
 
     @Mock
     private OrderGenerator orderGenerator;
-
-    @Mock
-    private EntityGeneratorFactory entityGeneratorFactory;
 
     @Test
     public void shouldGenerateProductOrderItem() {
@@ -45,7 +41,6 @@ public class ProductOrderItemGeneratorTest {
         EntityGeneratorModel entityGeneratorModel = EntityGeneratorModel.builder().productModels(Arrays.asList(productModel)).buyer(buyer).wareHouseAddress(wareHouseAddress).orderDate(date).build();
         Order order = new Order();
 
-        when(entityGeneratorFactory.get(EntityGeneratorType.ORDER)).thenReturn(orderGenerator);
         when(orderGenerator.generate(entityGeneratorModel)).thenReturn(order);
 
         List<OrderItem> orderItems = productOrderItemGenerator.generateProductOrderItem(entityGeneratorModel, Arrays.asList(product1));

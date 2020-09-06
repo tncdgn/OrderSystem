@@ -4,7 +4,6 @@ import com.project.ordersystem.dao.OrderDao;
 import com.project.ordersystem.entity.*;
 import com.project.ordersystem.entity.generator.EntityGeneratorFactory;
 import com.project.ordersystem.entity.generator.EntityGeneratorModel;
-import com.project.ordersystem.entity.generator.EntityGeneratorType;
 import com.project.ordersystem.entity.generator.ProductOrderItemGenerator;
 import com.project.ordersystem.model.CreateOrderModel;
 import com.project.ordersystem.model.ProductModel;
