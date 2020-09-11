@@ -21,6 +21,9 @@ public abstract class BaseEntity implements Serializable {
         if (this == other) {
             return true;
         }
+        if (other.getClass() == this.getClass()) {
+            return true;
+        }
         if (other == null) {
             return false;
         }

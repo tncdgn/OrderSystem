@@ -8,7 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController(value = "/order")
+@RestController
+@RequestMapping(value = "/order")
 public class OrderController extends BaseController {
 
     @ApiOperation("Create Order")
